@@ -30,5 +30,5 @@ Route::get('/', function () {
 // Route::post('/projects', 'ProjectsController@store');
 // Route::get('/projects/{project}/edit', 'ProjectsController@edit');
 // Route::patch('/projects/{project}', 'ProjectsController@update');
-// Route::delete('/projects/1', 'ProjectsController@destroy');
+// Route::delete('/projects/{project}', 'ProjectsController@destroy');
 
