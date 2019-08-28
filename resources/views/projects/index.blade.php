@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-  <head>
-    <title></title>
-  </head>
-  <body>
-    <h1>Projects</h1>
+@extends('layout')
+
+@section('content')
+    <h1 class="title">Projects</h1>
     <ul>
       @foreach ($projects as $project)
        <li>
@@ -13,5 +11,4 @@
         </li>
       @endforeach
     </ul>  
-  </body>
-</html>
+@endsection
