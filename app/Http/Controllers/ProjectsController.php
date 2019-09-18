@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 
+
 class ProjectsController extends Controller
 {
   public function index()
@@ -20,6 +21,8 @@ class ProjectsController extends Controller
 
   public function show(Project $project)
   {
+
+
     return view('projects.show', compact('project'));
   }
 
