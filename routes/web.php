@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,8 +12,15 @@ Route::get('/', function () {
 // PATCH /projects/1 (update)
 // DELETE /projects/1 (destroy)
 
- Route::resource('projects', 'ProjectsController');
+Route::resource('projects', 'ProjectsController');
 
- Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
- Route::post('/completed-tasks/{task}', 'CompletedTasksController@store');
- Route::delete('/completed-tasks/{task}', 'CompletedTasksController@destroy');
+Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
+Route::post('/completed-tasks/{task}', 'CompletedTasksController@store');
+Route::delete('/completed-tasks/{task}', 'CompletedTasksController@destroy');
+
+
+Route::get('/signup', 'HomeController@index')->name('home')->middleware('guest');
+
+// This is the routes for the login and register endpoints.
+Auth::routes();
+
