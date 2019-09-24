@@ -15,7 +15,6 @@ class LogQueries
      */
     public function handle($request, Closure $next)
     {
-        dd('hi there');
-        return $next($request);
+        
     }
 }

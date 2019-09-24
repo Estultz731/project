@@ -9,7 +9,7 @@ class ProjectsController extends Controller
 {
   public function index()
   {
-    $projects = \App\Project::all();
+    $projects = \App\Project::where('owner_id', auth()->id())->get();
 
     return view('projects.index', compact('projects'));
   }   
@@ -52,7 +52,7 @@ class ProjectsController extends Controller
       'description' => ['required', 'min:3']
     ]);
  
-    Project::create($attributes);
+    Project::create($attributes + ['owner_id' => auth()->id()]);
 
     return redirect('/projects');
   }
