@@ -21,7 +21,8 @@ class ProjectsController extends Controller
 
   public function show(Project $project)
   {
-
+    $this->authorize('update', $project);
+    //abort_if(\Gate::denies('update', $project), 403);
 
     return view('projects.show', compact('project'));
   }
@@ -33,6 +34,8 @@ class ProjectsController extends Controller
 
   public function update(Project $project)
   {
+    $this->authorize('update', $project);
+
     $project->update(request(['title', 'description']));
     
     return redirect('/projects');
@@ -40,6 +43,8 @@ class ProjectsController extends Controller
 
   public function destroy(Project $project)
   {
+    $this->authorize('destroy', $project);
+
     $project->delete();
 
     
